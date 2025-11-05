@@ -27,8 +27,6 @@ def create_pdf_from_post(link: str, pdf_name: str, pdf_dir: str):
     else:
         return "Link is Not Valid! "
 
-
-
 class App(tk.Tk):
     def __init__(self):
         super().__init__()

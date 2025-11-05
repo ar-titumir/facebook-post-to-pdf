@@ -61,7 +61,7 @@ class NextAndSave():
         self.page_counter = 0
         self.page_ids = {}
         self.driver.get(self.current_url)
-        time.sleep(1)
+        time.sleep(3)
 
     def monitor_download(self, futures_list, stop_event, print_event):
         while not stop_event.is_set():
@@ -201,7 +201,6 @@ class AccessPosts():
         self.driver.get(link)
         time.sleep(2)
 
-    
     def create_node(self, pdf_dir=None, pdf_file_name_=None):
         if not pdf_file_name_ or not pdf_file_name_.endswith(".pdf"):
             pdf_file_name_ = self.get_pdf_name()
@@ -209,7 +208,6 @@ class AccessPosts():
             print(f"Using file name: {pdf_file_name_}")
 
         self.next_and_save = NextAndSave(self.driver, self.get_image1_url(), pdf_dir=pdf_dir, pdf_file_name=pdf_file_name_)
-        time.sleep(3)
         self.next_and_save.next_n_save()
         self.next_and_save.make_pdf()
 
